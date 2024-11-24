@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const mongoose = require("mongoose");
 const path = require("path");
+require('dotenv').config();
 
 const userRouter = require("./routers/authRoute/userRoute");
 const fileRouter= require("./routers/fileRoute/fileRoute");
@@ -12,7 +13,7 @@ const app = express();
 const PORT = 4000;
 
 //MongoDB connection
-const url = `mongodb+srv://${Mongodb_User}:${Mongodb_pass}@mycluster.krravcy.mongodb.net/fileUpload?retryWrites=true&w=majority&appName=MyCluster`;
+const url = `mongodb+srv://${process.env.Mongodb_User}:${process.env.Mongodb_pass}@mycluster.krravcy.mongodb.net/fileUpload?retryWrites=true&w=majority&appName=MyCluster`;
 
 connectToMongoDB(url)
 .then(() => console.log("MongoDB connected"))
