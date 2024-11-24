@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors')
+const cors = require('cors');
 const mongoose = require("mongoose");
 const path = require("path");
 
@@ -12,11 +12,11 @@ const app = express();
 const PORT = 4000;
 
 //MongoDB connection
-const url = "mongodb+srv://miteshjuikar:Mitesh1@mycluster.krravcy.mongodb.net/fileUpload?retryWrites=true&w=majority&appName=MyCluster";
+const url = `mongodb+srv://${Mongodb_User}:${Mongodb_pass}@mycluster.krravcy.mongodb.net/fileUpload?retryWrites=true&w=majority&appName=MyCluster`;
 
 connectToMongoDB(url)
-.then(()=>console.log("MongoDB connected"))
-.catch((err)=> {console.log("Error: ", err);});
+.then(() => console.log("MongoDB connected"))
+.catch((err) => {console.log("Error: ", err);});
 
 app.use(cors({
     origin: 'http://localhost:5173',
